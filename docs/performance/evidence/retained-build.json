@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-12",
+  "binary_sha256": "87372d93708a1b828cd97197f71d2ed46e0e75b1a885f107cfdf986cccacf882",
+  "hardware": {
+    "cpu": "AMD Ryzen 7 7800X3D",
+    "memory": "48 GB",
+    "gpu": "AMD Radeon RX 6600 (not used by this CPU benchmark)"
+  },
+  "toolchain": "Rust 1.98.1",
+  "samples_per_workload": 7,
+  "warmups_per_workload": 1,
+  "scope": "retained CPU render call only; exact uncached F32 oracle outside every sample; no native/upload/GPU/optical timing",
+  "source_sha256": {
+    "crates/affint-render/examples/retained_workloads.rs": "fa22d0bbeeba7b4e0498673226e823e1500021e6954060803f4ddb60839ee1bc",
+    "crates/affint-render/examples/workloads.rs": "65e11915984256c2af5ed20f63acd6694e8662544c7cfa8f15d1dccad8cbe27f",
+    "crates/affint-render/src/budget.rs": "337c584b8965245da4de709b2b6e55fba4753bc54974d51c66148a88232509df",
+    "crates/affint-render/src/compositor/retained.rs": "cac1e65b975fcc4ae1151ad5145cc512d254ede4f46f148c33ec978080d3c7d2",
+    "crates/affint-render/src/compositor/spatial.rs": "ab007980d0ca2d4f4a7fbba9df7aae24e3cda57cce02ce111b7ae8f93b1fd14b",
+    "crates/affint-render/src/compositor/tests.rs": "1ac0e46f718f8ee3cebd5a860e11c3ec551857c03c68f5c9ed4a4cde5ef64cb3",
+    "crates/affint-render/src/compositor.rs": "f17c927898ce5c5f2f35fd2b18cbe5f56fa7a4ef02be85ea2aa86ebe22954054",
+    "crates/affint-render/src/lib.rs": "a43e881f27445bad3c911b3c7c2c99ebd8698c1710d92cb73fd43e4f9d24ad71",
+    "crates/affint-render/tests/reference.rs": "c5559f47c2525eb97a363c7fe9f8b6f968be002a9fbc007a16944bb87cfb5f5b",
+    "crates/affint-render/tests/retained.rs": "631df41bbe16760883054cc3c8bb29aeddc0db9824d8d26f11204c59f2e715f6",
+    "crates/affint-render/tests/working_output.rs": "2773c3e677e48e926da5847e81c6cb17629b1fa04122bfe3b862df408a5409db"
+  },
+  "summaries": [
+    {
+      "label": "retained-curves64-f32-02",
+      "n": 7,
+      "p50_ms": 12.18628,
+      "p95_ms": 15.452371,
+      "max_ms": 15.452371,
+      "peak_rss_kib": 110044
+    },
+    {
+      "label": "retained-photo24-pan-f32-01",
+      "n": 7,
+      "p50_ms": 7.705366,
+      "p95_ms": 9.885997,
+      "max_ms": 9.885997,
+      "peak_rss_kib": 157812
+    }
+  ]
+}

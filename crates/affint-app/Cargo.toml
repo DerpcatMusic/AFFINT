@@ -1,0 +1,28 @@
+[package]
+name = "affint-app"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+description = "Native MUI editor and faithful AFFINT canvas host"
+
+[dependencies]
+affint-document = { path = "../affint-document" }
+affint-render = { path = "../affint-render" }
+affint-storage = { path = "../affint-storage" }
+mui = { git = "https://github.com/Matari-Audio/MUI", rev = "c33c4451e8814562997171a1e00e9fb41fa955e6" }
+wgpu = "=29.0.4"
+vello_hybrid = "=0.2.0"
+vello_common = "=0.2.0"
+winit = { version = "=0.30.13", default-features = false, features = ["rwh_06", "x11", "wayland", "wayland-dlopen"] }
+kurbo = "=0.13.1"
+pollster = "=0.4.0"
+rfd = "=0.17.2"
+arboard = { version = "=3.6.1", default-features = false, features = ["wayland-data-control"] }
+epaint_default_fonts = "=0.34.3"
+sha2 = "=0.11.0"
+bytemuck = { version = "=1.25.2", default-features = false }
+
+[lints]
+workspace = true

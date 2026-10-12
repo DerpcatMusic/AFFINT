@@ -1,0 +1,8 @@
+workload,sample,width,height,output_format,render_ns,tile_hits,tile_misses,evaluated_tiles,geometry_hits,geometry_misses,prepared_curves,evictions,refused,resident_bytes,source_capacity_bytes,retained_pixel_capacity_bytes,metadata_admission_bytes,render_charged_bytes,output_bytes,oracle
+curves64-edit,0,512,512,linear-f32,13342592,252,4,4,63,1,1,0,0,87730704,0,87344592,386112,91925008,4194304,bit-exact
+curves64-edit,1,512,512,linear-f32,12186280,252,4,4,63,1,1,0,0,88805408,0,88414112,391296,92999712,4194304,bit-exact
+curves64-edit,2,512,512,linear-f32,11470506,252,4,4,63,1,1,0,0,89880112,0,89483632,396480,94074416,4194304,bit-exact
+curves64-edit,3,512,512,linear-f32,12294793,252,4,4,63,1,1,0,0,90954816,0,90553152,401664,95149120,4194304,bit-exact
+curves64-edit,4,512,512,linear-f32,11714591,252,4,4,63,1,1,0,0,92029520,0,91622672,406848,96223824,4194304,bit-exact
+curves64-edit,5,512,512,linear-f32,12039538,252,4,4,63,1,1,0,0,93104224,0,92692192,412032,97298528,4194304,bit-exact
+curves64-edit,6,512,512,linear-f32,15452371,252,4,4,63,1,1,0,0,94178928,0,93761712,417216,98373232,4194304,bit-exact

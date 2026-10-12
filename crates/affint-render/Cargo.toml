@@ -1,0 +1,18 @@
+[package]
+name = "affint-render"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Bounded exact-resolution linear-light CPU reference compositor for AFFINT"
+publish = false
+license.workspace = true
+
+[dependencies]
+affint-document = { path = "../affint-document" }
+kurbo = "=0.13.1"
+palette = { version = "=0.7.7", default-features = false, features = ["std"] }
+tiny-skia = { version = "=0.12.0", default-features = false, features = ["std"] }
+thiserror = "=2.0.21"
+
+[lints]
+workspace = true

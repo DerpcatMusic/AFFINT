@@ -1,0 +1,17 @@
+/target/
+/.research/
+/.affint-build.lock
+/.affint-build-state.json
+*.tmp
+*.log
+/__pycache__/
+**/__pycache__/
+/.impeccable/
+/docs/research/*-evidence/
+/docs/research/ui-research-evidence/releases/
+/docs/research/ui-research-evidence/*.crate
+/docs/research/ui-research-evidence/*/source/
+/docs/research/ui-research-evidence/*/source-*.tar.gz
+/docs/research/mui-evidence/releases/
+/docs/research/mui-evidence/MUI/graft/
+/docs/research/affinity-evidence/opensource/

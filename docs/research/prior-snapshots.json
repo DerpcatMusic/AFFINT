@@ -1,0 +1,74 @@
+[
+  {
+    "repository": "storytold/photocraft",
+    "commit": "c450e755aed5e77fa6d4de7f04996085f5871085",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/filmcraft",
+    "commit": "156086dc87282026aeec33f8a220e4629bccbe31",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/lightcraft",
+    "commit": "76b5377868d912db69a777bda253a5b1b96b22bd",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/vectorcraft",
+    "commit": "38061b951510620e45f5ff11333d3a8f8a167c78",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/effectcraft",
+    "commit": "67434e90388b6dca4417555346fa6850b6f96033",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/designcraft",
+    "commit": "65ef027f9fea002ac641aaf53d2929e1a6a811d1",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/pdfcraft",
+    "commit": "f3571c591f0ec4ee7faea67c011b3ee1eb6ba913",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/soundcraft",
+    "commit": "a10eb47032099491c32ac4eed17ce5fef03c03bf",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/cadcraft",
+    "commit": "6d7c652b6503f3dc5f4e2151be5b59f9c3d182a4",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/gridcraft",
+    "commit": "3926d21aa9a79d272b9f71ae60d67d7d7e5bd2c2",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/wordcraft",
+    "commit": "6a22d7257b4f43285c38c120d02b7b105367e689",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  },
+  {
+    "repository": "storytold/deckcraft",
+    "commit": "be14248577b92059eb2b8c0c9460cceffbc1f01d",
+    "review_date": "2026-10-12",
+    "original_scratch_available": false
+  }
+]

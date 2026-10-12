@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""Run one built workload under the shared lane and record Linux child peak RSS."""
+
+import argparse
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path
+import resource
+import signal
+import subprocess
+import time
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--label", required=True)
+    parser.add_argument("--example", choices=("workloads", "retained_workloads"),
+                        default="workloads", help="Select an already built release example")
+    parser.add_argument("--outer-seconds", type=int, default=660)
+    parser.add_argument("workload_args", nargs=argparse.REMAINDER)
+    args = parser.parse_args()
+    if not args.label or any(c not in "abcdefghijklmnopqrstuvwxyz0123456789-_" for c in args.label):
+        parser.error("label must contain lowercase letters, digits, hyphens or underscores")
+    if not 1 <= args.outer_seconds <= 7200:
+        parser.error("outer-seconds must be within 1..7200")
+    root = Path(__file__).resolve().parent.parent
+    command = [str(root / "target/release/examples" / args.example)]
+    command.extend(args.workload_args[1:] if args.workload_args[:1] == ["--"] else args.workload_args)
+    artifact = root / ".research/benchmarks" / args.label
+    with (root / ".affint-build.lock").open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        artifact.mkdir(parents=True, exist_ok=False)
+        digest = hashlib.sha256()
+        with Path(command[0]).open("rb") as binary:
+            while chunk := binary.read(1024 * 1024):
+                digest.update(chunk)
+        started = time.monotonic()
+        record = {
+            "command": command,
+            "binary_sha256": digest.hexdigest(),
+            "outer_seconds": args.outer_seconds,
+            "rss_policy": "Linux RUSAGE_CHILDREN ru_maxrss in KiB; one child lifetime including fork/exec startup. This may include a launcher/pre-exec floor for small workloads. Separate from module admission.",
+            "scope": "Release CPU/document harness; exact arguments recorded. Other desktop/Pi work is uncontrolled and must be recorded separately.",
+        }
+        (artifact / "command.json").write_text(json.dumps(record, indent=2) + "\n")
+        with (artifact / "workloads.csv").open("w") as output, (artifact / "process.log").open("w") as log:
+            process = subprocess.Popen(command, cwd=root, stdin=subprocess.DEVNULL,
+                                       stdout=output, stderr=log, start_new_session=True)
+            timed_out = False
+            try:
+                code = process.wait(timeout=args.outer_seconds)
+            except subprocess.TimeoutExpired:
+                timed_out = True
+                os.killpg(process.pid, signal.SIGTERM)
+                try:
+                    code = process.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    code = process.wait()
+        usage = resource.getrusage(resource.RUSAGE_CHILDREN)
+        record.update(exit_code=code, timed_out=timed_out,
+                      elapsed_seconds=time.monotonic() - started,
+                      peak_rss_kib=usage.ru_maxrss,
+                      user_cpu_seconds=usage.ru_utime, system_cpu_seconds=usage.ru_stime)
+        (artifact / "result.json").write_text(json.dumps(record, indent=2) + "\n")
+        print(json.dumps(record, indent=2), flush=True)
+        return 124 if timed_out else (code if code >= 0 else 128 - code)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

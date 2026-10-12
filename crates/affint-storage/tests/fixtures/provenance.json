@@ -1,0 +1,82 @@
+{
+  "origin": "Original synthetic samples authored for AFFINT; encoded by independent Pillow implementation",
+  "pillow_version": "12.3.0",
+  "fixtures": [
+    {
+      "file": "rgb-2x2.png",
+      "mode": "RGB",
+      "dimensions": [
+        2,
+        2
+      ],
+      "source_bytes": [
+        255,
+        0,
+        0,
+        0,
+        255,
+        0,
+        0,
+        0,
+        255,
+        17,
+        29,
+        43
+      ]
+    },
+    {
+      "file": "rgba-2x2.png",
+      "mode": "RGBA",
+      "dimensions": [
+        2,
+        2
+      ],
+      "source_bytes": [
+        255,
+        0,
+        0,
+        255,
+        0,
+        255,
+        0,
+        128,
+        0,
+        0,
+        255,
+        0,
+        17,
+        29,
+        43,
+        71
+      ]
+    },
+    {
+      "file": "gray-alpha-2x1.png",
+      "mode": "LA",
+      "dimensions": [
+        2,
+        1
+      ],
+      "source_bytes": [
+        19,
+        255,
+        203,
+        42
+      ]
+    },
+    {
+      "file": "gray16-2x1.png",
+      "mode": "I;16",
+      "dimensions": [
+        2,
+        1
+      ],
+      "source_bytes": [
+        1,
+        1,
+        255,
+        255
+      ]
+    }
+  ]
+}

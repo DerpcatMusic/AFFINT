@@ -1,0 +1,25 @@
+[package]
+name = "affint-document"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Validated immutable artwork, atomic edits, and reversible history for AFFINT"
+publish = false
+license.workspace = true
+
+[dependencies]
+kurbo = { version = "=0.13.1", features = ["serde"] }
+rpds = "=1.2.1"
+serde = { version = "=1.0.228", features = ["derive", "rc"] }
+thiserror = "=2.0.21"
+
+[dev-dependencies]
+proptest = "=1.9.0"
+serde_json = "1.0"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "deny"
+
+[lints.clippy]
+all = "warn"
