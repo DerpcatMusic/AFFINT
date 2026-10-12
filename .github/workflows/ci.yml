@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - name: Install Rust tools
+      - name: Install verified Rust tools
         run: |
-          rustup toolchain install stable --profile minimal --component rustfmt --component clippy
-          rustup default stable
+          rustup toolchain install 1.98.1 --profile minimal --component rustfmt --component clippy
+          rustup show active-toolchain
       - name: Verify workspace
         run: scripts/verify --label ci --build-app --jobs 2

@@ -488,3 +488,11 @@ and invalid captures are excluded. The public image is AFFINT's own original
 synthetic document on the isolated display. GitHub CI runs the coordinated check.
 This release finishes the verified current milestone, not complete Affinity/Adobe
 feature or interface parity. Remaining product work is stated in the roadmap.
+
+The first public GitHub run passed workspace tests, then failed Clippy when the
+unpinned stable compiler deprecated an API supported by the declared older
+compiler versions. The release is verified with Rust1.98.1, so rust-toolchain.toml
+and CI now pin that exact available official toolchain. No document/render/input
+algorithm, dependency pin or numerical assertion changes. Lower declared compiler
+versions remain unqualified; moving the verification compiler is a separate
+compatibility increment.

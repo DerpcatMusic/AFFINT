@@ -34,8 +34,9 @@ See [the capability table](docs/roadmap.md), [architecture](docs/architecture.md
 
 ## Build and run
 
-Linux is the verified target. Use Rust 1.95 or newer; development verification uses
-Rust 1.98.1. The lower per-crate declarations have not been independently qualified.
+Linux is the verified target. The repository pins Rust 1.98.1 for reproducible
+verification. Workspace manifests declare Rust 1.95; lower per-crate/minimum
+versions have not been independently qualified.
 Native use needs a graphical session, the platform's X11/Wayland libraries and a
 supported graphics driver. Windows/macOS builds are not qualified.
 

@@ -4,8 +4,8 @@ AFFINT is an early native Rust editor. Consult the capability table in
 [the roadmap](docs/roadmap.md), [the architecture](docs/architecture.md), and
 [the engineering contract](AGENTS.md) before proposing a feature.
 
-Use Rust 1.95 or newer for the workspace. Verification on the development machine
-uses Rust 1.98.1; the lower declared per-crate versions have not been qualified.
+Use the repository's pinned Rust 1.98.1 toolchain. Workspace manifests declare
+Rust 1.95; lower declared per-crate/minimum versions have not been qualified.
 Keep `Cargo.lock` and MUI's git revision pinned. Build on Linux first; Windows and
 macOS are portability goals, not validated release targets.
 
