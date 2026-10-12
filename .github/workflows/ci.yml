@@ -2,14 +2,15 @@ name: Rust checks
 
 on:
   push:
+    branches: ["**"]
   pull_request:
 
 permissions:
   contents: read
 
 concurrency:
-  group: rust-${{ github.ref }}
-  cancel-in-progress: true
+  group: affint-rust-checks
+  cancel-in-progress: false
 
 jobs:
   check:
